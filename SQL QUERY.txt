@@ -83,4 +83,10 @@ group by p.user_id order by count(b.post_id) desc limit 10;
 SELECT user_id, caption, LENGTH(post.caption) AS caption_length FROM post
 ORDER BY caption_length DESC LIMIT 5;
 
+/* Which post got more likes */
+
+select p.post_id, count(pl.post_id) as 'More likes' from post_likes pl
+inner join post p on pl.post_id = p.post_id
+group by post_id order by count(post_id) desc limit 5;
+
 
