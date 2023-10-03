@@ -49,7 +49,7 @@ To gain insights from the Instagram data, we've written SQL queries to answer va
 - Most bookmarks post by user
 - Longest captions in post
 
-You can find these SQL queries in the [SQL Queries](/sql-queries/) directory.
+You can find these SQL queries in the [SQL Queries] (http://surl.li/lsymk) directory.
 
 ## Power BI Dashboard
 
