@@ -1,14 +1,13 @@
-# Instagram-analysis-with-SQL-and-POWER-BI-
+# Instagram-analysis-with-SQL
 
 
 This GitHub repository contains an analysis of Instagram data with various categories and tables.
-The project includes SQL queries to answer specific questions and the creation of a Power BI dashboard for visualization.
+The project includes SQL queries to answer specific questions. 
 
 
 ## Introduction
 
 In this project, I explore Instagram data to gain insights and answer specific questions using SQL queries.
-Additionally, I create a Power BI dashboard for visualizing the data. 
 This README provides an overview of the project's components and how to use them.
 
 ## Data
@@ -52,14 +51,7 @@ To gain insights from the Instagram data, we've written SQL queries to answer va
 
 You can find these SQL queries in the [SQL Queries](http://surl.li/lsymk) directory.
 
-## Power BI Dashboard
 
-We've created a Power BI dashboard to visualize the Instagram data and make it easier to understand. 
-The dashboard includes interactive charts and reports for better data exploration.
-
-![Power BI Dashboard](link_to_dashboard_image.png)
-
-You can explore the Power BI dashboard by visiting [this link](link_to_dashboard).
 
 
 
