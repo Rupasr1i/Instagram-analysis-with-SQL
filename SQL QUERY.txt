@@ -1,0 +1,86 @@
+
+/* Most followed hashtag */
+
+select hashtag_name, count(hf.hashtag_id) as 'Total Follows'
+from hashtags h 
+inner join hashtag_follow hf on  h.hashtag_id = hf.hashtag_id
+group by hashtag_name order by count(hf.hashtag_id) desc limit 5;
+
+/* Most Used Hashtags */
+ select h.hashtag_name as 'Trending Hashtags', count(pt.hashtag_id) as 'Time Used'
+ from hashtags h
+ inner join post_tags pt on h.hashtag_id = pt.hashtag_id
+ group by hashtag_name order by  count(pt.hashtag_id) desc limit 5;
+
+/* Most Inactive User */
+
+SELECT user_id, username AS 'Most Inactive User'
+FROM users
+WHERE user_id NOT IN (SELECT user_id FROM post);
+
+ 
+/* Most Likes Posts */
+
+select p.post_id, count(pl.post_id) as 'Most liked post'
+from post p 
+ right join post_likes pl on p.post_id = pl.post_id
+ group by pl.post_id order by count(pl.post_id) desc ;
+
+
+-/*  Average post per user */
+
+SELECT ROUND((COUNT(post_id) / COUNT(DISTINCT user_id) ),2) AS 'Average Post per User' 
+FROM post;
+
+/* User Never Comment */
+ 
+SELECT user_id, username AS 'User Never Comment'
+FROM users
+WHERE user_id NOT IN (SELECT user_id FROM comments);
+
+
+/* Followers > 40 */
+
+SELECT followee_id, COUNT(follower_id) AS follower_count FROM follows
+GROUP BY followee_id
+HAVING follower_count > 40
+ORDER BY COUNT(follower_id) DESC;
+
+
+/* Any specific word in comment */
+
+SELECT * FROM comments
+WHERE comment_text REGEXP'good|beautiful';
+
+
+/* Most posts according location */
+
+select location, count(post_id) as 'Total post' from post
+group by location order by count(post_id) desc limit 5;
+
+
+/* Most users according location */
+
+select location, count(user_id) as 'Total user' from post
+group by location order by count(user_id) desc limit 5;
+
+
+/* Most bookmarks post */
+
+select p.post_id, count(b.post_id) as 'most bookmarked post' from bookmarks b
+inner join post p on b.post_id = p.post_id
+group by p.post_id order by count(b.post_id) desc limit 10; 
+
+/* Most bookmarks post by user */
+
+select p.user_id,u.username, count(b.post_id) as 'most bookmarked post' from bookmarks b
+inner join post p on b.user_id = p.user_id
+inner join users u on u.user_id = b.user_id
+group by p.user_id order by count(b.post_id) desc limit 10; 
+
+/*Longest captions in post */
+
+SELECT user_id, caption, LENGTH(post.caption) AS caption_length FROM post
+ORDER BY caption_length DESC LIMIT 5;
+
+
